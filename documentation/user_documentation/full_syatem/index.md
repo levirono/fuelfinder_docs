@@ -86,8 +86,7 @@ Accessible by tapping on a station, showing:
 - as you drive arround your realtime location will be centered in the map and it is marked by car icon ensuring that you always have a view of the fuel station.
 
 
-![alt text](MAPVIEW.png)
-
+![alt text](<mapview revised.png>)
 
 
 
@@ -171,22 +170,15 @@ Our database is Cloud Firestore, which is a type of database called NoSQL. In Fi
     - Contains all the information about different fuel stations
     - Includes things like station names, locations, and contact details
 
-    ![alt text](image.png)
-
 3. Station Services Collection:
     - Keeps track of what services each fuel station offers
     - Updates in real-time, so users always see the latest information
     - this also include a checkmark for updated services that are currenly      available for that station.
     - the station services are linked to each station that offers those particular services
 
-
-    ![alt text](image-1.png)
-
 4. Drivers Collection:
     - Stores details about drivers who use our app
     - Includes driver profiles with information like vehicle types or preferred fuel stations.
-
-    ![alt text](image-2.png)
 
 5. Fuel Efficiency Tips Collection:
     - A collection of helpful tips for users to save fuel

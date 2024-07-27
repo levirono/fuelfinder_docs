@@ -8,7 +8,7 @@ The primary objective of FUELFINDER is to empower drivers by enabling them to lo
 
 The application is built using the Flutter framework and written in Dart language, ensuring cross-platform compatibility and a smooth user experience. By leveraging modern mobile development technologies and real-time data management, FUELFINDER aims to revolutionize the way drivers interact with fuel stations and manage their fueling needs.
 
-### 1.1 Technological Foundation
+### 1.1 Technological Foundation![alt text](image-10.png)
 
 FUELFINDER is built using cutting-edge mobile development technologies:
 
@@ -16,6 +16,10 @@ FUELFINDER is built using cutting-edge mobile development technologies:
 - **Programming Language**: The entire application is written in Dart, a client-optimized programming language for fast apps on multiple platforms. Dart's sound type system and null safety features contribute to more robust and maintainable code.
 
 By leveraging these modern technologies, FUELFINDER ensures cross-platform compatibility and delivers a smooth, responsive user experience across various devices and screen sizes.
+
+### These are packages which the application used 
+
+![packages](image-14.png)
 
 ### 1.2 Key Benefits
 
@@ -61,9 +65,14 @@ After successful signup, the user's role is saved in the system, ensuring proper
 
 Upon successful login, the system performs a check of the user's role (driver, station, or admin) and automatically navigates them to the appropriate dashboard. It's worth noting that the admin role is assigned directly from the database to a single user, ensuring centralized control over the application's management features.
 
+![Role based navigation on the application entry point](image.png)
+
 ### 3.4 Profile Completion
 
 To ensure comprehensive user data and enhance the application's functionality, the system checks if the user's profile is complete before fully loading the dashboard. If the profile is incomplete, a dialog prompts the user to provide the necessary information. Once the profile is completed, the user is automatically navigated to their respective dashboard.
+
+this is example on the driver dashboard page 
+![checking profile load](image-1.png)
 
 ### 3.5 State Persistence
 
@@ -76,6 +85,7 @@ The Driver Dashboard is designed to provide a comprehensive suite of tools and i
 ### 4.1 Fuel Efficiency Dialog
 
 This feature displays one random fuel efficiency tip each time a driver logs in or opens the application. The tip has a delay of about 20 seconds before it displays. These tips can cover a range of topics, from driving habits to vehicle maintenance, providing valuable information to users.
+[fuel efficiency tips dislog](image-2.png)
 
 ### 4.2 Search Function
 
@@ -89,7 +99,12 @@ The map view provides a visual representation of the user's surroundings and ava
 - Display of all registered stations as markers using fuel station icon and station Name below it.
 - Zoom capabilities for detailed area exploration
 - Information container that appears upon tapping a station marker this container will contain the status of the station which include fuel availability, operation hours and whether it is open or not.
-- Search functionality for exploring different regions
+- Search functionality for exploring different regions.
+
+### This is how driver current location is obtained
+![Get current location](image-3.png)
+### This is how marker is created in map view class 
+![marker creation](image-9.png)
 
 ### 4.4 List of Fuel Stations
 
@@ -101,7 +116,7 @@ This component provides a comprehensive list of nearby fuel stations, offering t
 - Color-coded fuel availability (red for unavailable, green for available)
 - Displays operation hours and 24-hour availability status
 - To see all the fuel stations there is a button below the list that will enable you to open a page with all stations.
-
+![fuel stations](image-5.png)
 ### 4.5 Station Details Page
 
 Users can access detailed information about a specific station by tapping on it. The Station Details Page includes:
@@ -128,7 +143,9 @@ Similar to the Driver Dashboard, this feature provides relevant information and 
 
 ### 5.2 Verification Status Panel
 
-This panel displays the current verification status of the station, ensuring transparency in the registration process.
+This panel displays the current verification status of the station, ensuring transparency in the registration process.The station can only update services if verification status is true.
+
+![verification](image-4.png)
 
 ### 5.3 Station Status Toggle
 
@@ -163,7 +180,11 @@ To ensure accurate location data, the Station Dashboard includes:
 
 - A GPS link field for inputting station coordinates
 - An integrated map for easy coordinate selection
-- Automatic coordinate filling and clipboard copying for convenience
+- Automatic coordinate filling and clipboard copying for convenience.
+
+![staton coordinates](image-6.png)
+
+
 
 ## 6. Admin Dashboard
 
@@ -226,23 +247,36 @@ To interact with the database efficiently, a Firestore Service class was created
 
 To ensure data consistency and organization, model classes were created for each type of data stored, including user models, Fuel Station models, and others.
 
+example of fuel station model
+
+![model](image-7.png)
+
+
 ### 7.4 Authentication Service
 
 Firebase Authentication is used to handle user logins. A dedicated class manages all authentication-related tasks, including:
 
 - Creating new user accounts
 - Logging users in and out
-- Checking the current login status of users
+- Checking the current login status of users.
+![auth](image-8.png)
+
 
 ### 7.5 Maps Service
 
-For mapping functionality, FUELFINDER integrates Mapbox, a service based on OpenStreetMap. Mapbox allows for customization of map appearance through their Map Studio tool, enabling the app to maintain a consistent visual style.
+For mapping functionality, FUELFINDER integrates Mapbox, a service based on OpenStreetMap. Mapbox allows for customization of map appearance through their Map Studio tool, enabling the app to maintain a consistent visual style.Tthe map is accessed through the use of API keys which are store in .env file![alt text](image-13.png)
 
 ### 7.6 Real-time Operations
 
 A key feature of FUELFINDER is its real-time update capability:
 
 - Streams are set up in the Firestore Service class to listen for database changes.
-- When changes occur (e.g., fuel price updates), the streams detect them immediately.
+- When changes occur (e.g.,fuel availability,station status etc), the streams detect them immediately.
 - The app automatically updates to reflect new information without user intervention.
 - This ensures users always have access to the most current data on fuel availability, prices, and station status.
+
+### This is an example of how the streams were created 
+#### In the firestore service class 
+![alt text](image-11.png)
+#### In the driver dashboard class
+![alt text](image-12.png)
