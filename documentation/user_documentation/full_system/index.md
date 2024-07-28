@@ -42,9 +42,7 @@ For the stations after completing their registration they will wait for 24 hours
 The system maintains the state of the user's dashboard, eliminating the need for repeated logins.
 
 ## Driver Dashboard
-
-![alt text](<DRIVER DASHBOARD.png>)
-![alt text](DRIVERDASHBOARD2.png)
+![alt text](DRIVERD.png)
 ![alt text](DRIVERDASHBOARD3.png)
 
 ### Main Components
